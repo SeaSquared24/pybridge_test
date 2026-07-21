@@ -4,7 +4,7 @@ class Window:
     def __init__(self):
         self.run = True
         self.root = tk.Tk()
-        self.root.title("Test Window")
+        self.root.title("PyBridge")
         self.root.geometry("600x600")
         self.root.resizable(True, True)
 
@@ -18,6 +18,7 @@ class Window:
         self.root.protocol("WM_DELETE_WINDOW", self.handler)
 
     def handler(self):
+        # Stop the loop and close the window
         self.run = False
         self.root.destroy()
 
