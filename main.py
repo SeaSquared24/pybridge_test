@@ -1,4 +1,5 @@
 import tkinter as tk
+import rust_backend
 
 class Window:
     def __init__(self):
@@ -7,6 +8,9 @@ class Window:
         self.root.title("PyBridge")
         self.root.geometry("600x600")
         self.root.resizable(True, True)
+
+        self.label = tk.Label(self.root, text="Waiting...")
+        self.label.pack()
 
         self.button = tk.Button(
             self.root, 
@@ -30,7 +34,8 @@ class Window:
             self.root.after(16, self.loop)
 
     def on_button_click(self):
-        # Going to call a Rust function.
+        result = rust_backend.greet("User")
+        self.label.config(text=result)
 
 def main():
     window = Window()
