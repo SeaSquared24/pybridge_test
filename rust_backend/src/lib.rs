@@ -20,9 +20,7 @@ pub fn button_pressed() -> String {
     "Hello from Rust!".to_string()
 }
 
-/// greet is an example of a function that takes a parameter from the Python side and returns a string.
-/// Funnily enough, VS Code will autocomplete the format to match the other function.
-/// I left it in to show that they can be written either way.
+/// py_greet is another example of a pyfunction that exposes a Rust function to Python.
 #[pyfunction(name = "greet")]
 fn py_greet(name: &str) -> String {
     greet(name)
